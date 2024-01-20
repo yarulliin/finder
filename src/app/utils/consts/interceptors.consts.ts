@@ -10,4 +10,4 @@ export const interceptors: HttpInterceptorFn[] = [
   authInterceptor,
 ];
 
-export const authBlackList = [Urls.AUTH];
+export const AUTH_BLACKLIST = [Urls.AUTH];

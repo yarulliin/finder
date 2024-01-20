@@ -9,6 +9,13 @@ export const API_URL: InjectionToken<ApiUrls> = new InjectionToken<ApiUrls>(
   }
 );
 
+export const BASE_URL: InjectionToken<string> = new InjectionToken<string>(
+  'API token',
+  {
+    factory: () => environment.baseUrl
+  }
+);
+
 export const CLIENT_ID: InjectionToken<string> = new InjectionToken<string>(
   'Client id',
   {

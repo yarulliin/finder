@@ -6,6 +6,7 @@ import { Environment } from '../app/utils/interfaces/environment.interfaces';
 import { Urls } from '../app/utils/enums/urls.enum';
 
 export const environment: Environment = {
+  baseUrl: 'http://localhost:4200',
   production: true,
   clientId: '519h5egol822kv8h9evtpbh051',
   urlsEnum: Urls,
