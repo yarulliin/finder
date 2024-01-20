@@ -7,8 +7,8 @@ import { provideHttpClient, withFetch, withInterceptors } from '@angular/common/
 import { interceptors } from './utils/consts/interceptors.consts';
 import { TranslocoHttpLoader } from './transloco-loader';
 import { provideTransloco } from '@ngneat/transloco';
-import { Langs } from './utils/enums/langs.enums';
-import { AVAILABLE_LANGS } from './utils/consts/langs.consts';
+import { Languages } from './utils/enums/languages.enums';
+import { AVAILABLE_LANGUAGES } from './utils/consts/languages.consts';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -21,8 +21,8 @@ export const appConfig: ApplicationConfig = {
     provideHttpClient(),
     provideTransloco({
         config: {
-          availableLangs: AVAILABLE_LANGS,
-          defaultLang: Langs.EN,
+          availableLangs: AVAILABLE_LANGUAGES,
+          defaultLang: Languages.EN,
           // Remove this option if your application doesn't support changing language in runtime.
           reRenderOnLangChange: true,
           prodMode: !isDevMode(),
