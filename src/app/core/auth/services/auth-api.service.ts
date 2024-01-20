@@ -12,19 +12,20 @@ import {
   Username
 } from '../interfaces/auth.interfaces';
 import { TargetValues } from '../enums/auth.enums';
+import { ApiUrls } from '../../../utils/interfaces/app.interfaces';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
-export class AuthService {
+export class AuthApiService {
   constructor(
-    @Inject(API_URL) private readonly apiUrl: string,
+    @Inject(API_URL) private readonly apiUrl: ApiUrls,
     private readonly httpClient: HttpClient,
   ) { }
 
   public signIn(data: Auth): Observable<AuthResult> {
     return this.httpClient.post<AuthResult>(
-      this.apiUrl,
+      this.apiUrl.AUTH,
       data,
       { headers: { 'X-Amz-Target': TargetValues.SIGN_IN } },
     );
@@ -32,7 +33,7 @@ export class AuthService {
 
   public registration(data: Registration): Observable<RegistrationResult> {
     return this.httpClient.post<RegistrationResult>(
-      this.apiUrl,
+      this.apiUrl.AUTH,
       data,
       { headers: { 'X-Amz-Target': TargetValues.REGISTRATION } },
     );
@@ -40,7 +41,7 @@ export class AuthService {
 
   public resendCode(data: Username): Observable<ResendCodeResult> {
     return this.httpClient.post<ResendCodeResult>(
-      this.apiUrl,
+      this.apiUrl.AUTH,
       data,
       { headers: { 'X-Amz-Target': TargetValues.RESEND_CONFIRMATION_CODE } },
     )
@@ -48,7 +49,7 @@ export class AuthService {
 
   public confirmationCode(data: ConfirmationCode): Observable<void> {
     return this.httpClient.post<void>(
-      this.apiUrl,
+      this.apiUrl.AUTH,
       data,
       { headers: { 'X-Amz-Target': TargetValues.CONFIRMATION_CODE } },
     );
@@ -56,7 +57,7 @@ export class AuthService {
 
   public refreshToken(data: Auth): Observable<AuthResult> {
     return this.httpClient.post<AuthResult>(
-      this.apiUrl,
+      this.apiUrl.AUTH,
       data,
       { headers: { 'X-Amz-Target': TargetValues.REFRESH_TOKEN } },
     );

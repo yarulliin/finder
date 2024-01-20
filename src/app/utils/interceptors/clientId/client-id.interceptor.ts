@@ -4,9 +4,11 @@ import { CLIENT_ID } from '../../tokens/environment.tokens';
 
 export const clientIdInterceptor: HttpInterceptorFn = (req: HttpRequest<unknown>, next: HttpHandlerFn) => {
   const clientId = inject(CLIENT_ID);
-  const reqWithClientId = req.clone({
-    body: { ...req.body || {}, ClientId: clientId },
-  });
+  const reqWithClientId = req.method.toLowerCase() === 'post'
+    ? req.clone({
+        body: { ...req.body || {}, ClientId: clientId }
+      })
+    : req;
 
   return next(reqWithClientId);
 };

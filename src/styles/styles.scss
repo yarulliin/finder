@@ -1,6 +1,25 @@
 /* You can add global styles to this file, and also import other style files */
 @import 'fonts';
+@import 'colors';
+@import 'variables';
+
+:root {
+  @include colors();
+  @include variables();
+}
 
 body {
   font-family: PlayfairDisplay;
+}
+
+.card {
+  position: relative;
+  border-radius: var(--fa-radius-xl);
+  background-color: var(--fa-base-01);
+  word-wrap: break-word;
+  text-decoration: none;
+  color: var(--fa-text-01);
+  outline: none;
+  box-sizing: content-box;
+  box-shadow: var(--fa-shadow);
 }

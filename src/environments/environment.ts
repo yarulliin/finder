@@ -3,11 +3,12 @@
 // The list of file replacements can be found in `angular.json`.
 
 import { Environment } from '../app/utils/interfaces/environment.interfaces';
+import { Urls } from '../app/utils/enums/urls.enum';
 
 export const environment: Environment = {
   production: false,
-  baseUrl: 'https://cognito-idp.eu-north-1.amazonaws.com',
   clientId: '519h5egol822kv8h9evtpbh051',
+  urlsEnum: Urls,
 };
 
 /*

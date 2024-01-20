@@ -1,10 +1,11 @@
 import { InjectionToken } from '@angular/core';
 import { environment } from '../../../environments/environment';
+import { ApiUrls } from '../interfaces/app.interfaces';
 
-export const API_URL: InjectionToken<string> = new InjectionToken<string>(
+export const API_URL: InjectionToken<ApiUrls> = new InjectionToken<ApiUrls>(
   'API token',
   {
-    factory: () => environment.baseUrl
+    factory: () => environment.urlsEnum
   }
 );
 
