@@ -7,6 +7,5 @@ export enum TargetValues {
   REGISTRATION = 'AWSCognitoIdentityProviderService.SignUp',
   CONFIRMATION_CODE = 'AWSCognitoIdentityProviderService.ConfirmSignUp',
   RESEND_CONFIRMATION_CODE = 'AWSCognitoIdentityProviderService.ResendConfirmationCode',
-  SIGN_IN = 'AWSCognitoIdentityProviderService.InitiateAuth',
-  REFRESH_TOKEN = 'AWSCognitoIdentityProviderService.InitiateAuth',
+  AUTH = 'AWSCognitoIdentityProviderService.InitiateAuth',
 }

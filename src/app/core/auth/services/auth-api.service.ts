@@ -27,7 +27,7 @@ export class AuthApiService {
     return this.httpClient.post<AuthResult>(
       this.apiUrl.AUTH,
       data,
-      { headers: { 'X-Amz-Target': TargetValues.SIGN_IN } },
+      { headers: { 'X-Amz-Target': TargetValues.AUTH } },
     );
   }
 
@@ -59,7 +59,7 @@ export class AuthApiService {
     return this.httpClient.post<AuthResult>(
       this.apiUrl.AUTH,
       data,
-      { headers: { 'X-Amz-Target': TargetValues.REFRESH_TOKEN } },
+      { headers: { 'X-Amz-Target': TargetValues.AUTH } },
     );
   }
 }

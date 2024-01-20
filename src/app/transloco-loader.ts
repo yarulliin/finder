@@ -1,6 +1,6 @@
-import { inject, Injectable } from "@angular/core";
-import { Translation, TranslocoLoader } from "@ngneat/transloco";
-import { HttpClient } from "@angular/common/http";
+import { inject, Injectable } from '@angular/core';
+import { Translation, TranslocoLoader } from '@ngneat/transloco';
+import { HttpClient } from '@angular/common/http';
 import { BASE_URL } from './utils/tokens/environment.tokens';
 import { Observable } from 'rxjs';
 

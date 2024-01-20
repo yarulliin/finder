@@ -13,7 +13,7 @@ export class FilmsApiService {
     private readonly httpClient: HttpClient,
   ) { }
 
-  public getFilms(): Observable<any> {
-    return this.httpClient.get<any>(`${this.apiUrl.FILMS}/default/get-films`);
+  public getFilms(): Observable<Record<string, unknown>> {
+    return this.httpClient.get<Record<string, unknown>>(`${this.apiUrl.FILMS}/default/get-films`);
   }
 }

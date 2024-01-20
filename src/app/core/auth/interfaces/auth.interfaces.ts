@@ -25,7 +25,7 @@ export interface Auth {
 
 export interface AuthResult {
   AuthenticationResult: AuthenticationResult;
-  ChallengeParameters: {};
+  ChallengeParameters: Record<string, never>;
 }
 
 export interface AuthenticationResult {
