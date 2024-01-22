@@ -17,7 +17,7 @@ export const routes: Routes = [
     loadComponent: () => import('./core/films/films.component').then(m => m.FilmsComponent),
   },
   {
-    path: RoutesEnum.ANY,
+    path: RoutesEnum.UNKNOWN,
     loadComponent: () => import('./core/not-found/not-found.component').then(m => m.NotFoundComponent),
   },
 ];

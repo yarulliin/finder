@@ -6,5 +6,5 @@ export enum RoutesEnum {
   EMPTY = '',
   AUTH = 'auth',
   FILMS = 'films',
-  ANY = '**'
+  UNKNOWN = '**'
 }
