@@ -1,0 +1,20 @@
+@import "mixins";
+
+:host {
+  @include flex(space-between, center);
+
+  position: sticky;
+  top: 0;
+  padding: 1rem 2rem;
+  gap: 1rem;
+
+  section {
+    @include flex(space-between, center);
+
+    gap: .5rem;
+  }
+
+  span {
+    font-size: 2rem;
+  }
+}

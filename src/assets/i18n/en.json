@@ -1,1 +1,12 @@
-{}
+{
+  "GetStartedComponent": {
+    "getStartedLabel": "Get started"
+  },
+  "HeaderComponent": {
+    "signInLabel": "Sign in",
+    "signUpLabel": "Sign up"
+  },
+  "NotFoundComponent": {
+    "notFoundLabel": "Page not found"
+  }
+}

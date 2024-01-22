@@ -1,0 +1,13 @@
+<ng-container *transloco="let t; read: 'HeaderComponent'">
+  <span [routerLink]="routes.EMPTY">Finder</span>
+  <section>
+    <a href="/"
+       [routerLink]="routes.AUTH">
+      <button class="secondary-button button-size-s">{{ t('signInLabel') }}</button>
+    </a>
+    <a href="/"
+       [routerLink]="routes.AUTH">
+      <button class="primary-button button-size-s">{{ t('signUpLabel') }}</button>
+    </a>
+  </section>
+</ng-container>

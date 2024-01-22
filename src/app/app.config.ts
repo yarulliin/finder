@@ -20,14 +20,14 @@ export const appConfig: ApplicationConfig = {
     provideClientHydration(),
     provideHttpClient(),
     provideTransloco({
-        config: {
-          availableLangs: AVAILABLE_LANGUAGES,
-          defaultLang: Languages.EN,
-          // Remove this option if your application doesn't support changing language in runtime.
-          reRenderOnLangChange: true,
-          prodMode: !isDevMode(),
-        },
-        loader: TranslocoHttpLoader
-      }),
+      config: {
+        availableLangs: AVAILABLE_LANGUAGES,
+        defaultLang: Languages.EN,
+        // Remove this option if your application doesn't support changing language in runtime.
+        reRenderOnLangChange: true,
+        prodMode: !isDevMode(),
+      },
+      loader: TranslocoHttpLoader
+    }),
   ]
 };

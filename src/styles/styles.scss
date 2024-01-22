@@ -2,24 +2,28 @@
 @import 'fonts';
 @import 'colors';
 @import 'variables';
+@import 'classes';
 
 :root {
   @include colors();
   @include variables();
 }
 
-body {
-  font-family: PlayfairDisplay;
+* {
+  margin: 0;
+  padding: 0;
+
+  h1 {
+    font-family: PlayfairDisplay;
+    margin: 0;
+  }
 }
 
-.card {
-  position: relative;
-  border-radius: var(--fa-radius-xl);
-  background-color: var(--fa-base-01);
-  word-wrap: break-word;
-  text-decoration: none;
-  color: var(--fa-text-01);
-  outline: none;
-  box-sizing: content-box;
-  box-shadow: var(--fa-shadow);
+body {
+  height: 100vh;
+}
+
+button {
+  font-weight: 400;
+  cursor: pointer;
 }

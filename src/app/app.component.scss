@@ -1,10 +1,29 @@
-h1 {
-  font-weight: 400;
-  font-size: 120px;
-}
+@import "mixins";
 
-span {
-  font-family: Roboto;
-  font-weight: 100;
-  font-size: 24px;
+:host {
+  height: 100%;
+
+  .background {
+    @include flex(center, center);
+
+    position: absolute;
+    height: 100%;
+    width: 100%;
+
+    .circle {
+      width: 25%;
+      height: 25%;
+      border-radius: 999px;
+      background: linear-gradient(to bottom, #fa39ad 40%, #fe6c4c 60%);
+      filter: blur(12rem);
+    }
+  }
+
+  .content {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    z-index: 1;
+  }
 }

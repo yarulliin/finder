@@ -1,0 +1,23 @@
+@import "mixins";
+
+:host {
+  @include flex(center, center);
+
+  font-family: Roboto;
+  gap: 4rem;
+  flex-direction: column;
+  text-align: center;
+  max-width: 64rem;
+  margin: 12rem auto;
+
+  h1 {
+    font-size: 6rem;
+  }
+
+  span {
+    font-size: 1.5rem;
+    line-height: 2rem;
+    font-weight: 300;
+    text-wrap: balance;
+  }
+}

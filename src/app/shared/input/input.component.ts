@@ -1,16 +1,16 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 
 @Component({
-  selector: 'fa-card, a[card]',
+  selector: 'fa-input, input[faInput]',
   standalone: true,
   imports: [],
-  templateUrl: './card.component.html',
-  styleUrl: './card.component.scss',
+  templateUrl: './input.component.html',
+  styleUrl: './input.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: {
-    class: 'card'
+    class: 'input'
   }
 })
-export class CardComponent {
+export class InputComponent {
 
 }
