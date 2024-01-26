@@ -9,9 +9,11 @@ import { TranslocoHttpLoader } from './transloco-loader';
 import { provideTransloco } from '@ngneat/transloco';
 import { Languages } from './utils/enums/languages.enums';
 import { AVAILABLE_LANGUAGES } from './utils/consts/languages.consts';
+import { provideAnimations } from '@angular/platform-browser/animations';
 
 export const appConfig: ApplicationConfig = {
   providers: [
+    provideAnimations(),
     provideRouter(routes),
     provideHttpClient(
       withFetch(),

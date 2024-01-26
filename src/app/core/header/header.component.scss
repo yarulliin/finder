@@ -3,10 +3,13 @@
 :host {
   @include flex(space-between, center);
 
-  position: sticky;
+  position: fixed;
   top: 0;
   padding: 2rem 4rem;
+  width: 100%;
+  box-sizing: border-box;
   gap: 1rem;
+  z-index: 1;
 
   section {
     @include flex(space-between, center);

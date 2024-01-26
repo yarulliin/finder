@@ -28,6 +28,11 @@ body {
   height: 100vh;
 }
 
+router-outlet + * {
+  position: absolute;
+  width: 100%;
+}
+
 button {
   font-weight: 400;
   cursor: pointer;

@@ -5,7 +5,8 @@
 
   height: 100%;
   flex: 1;
-  margin: 8rem 0;
+  padding: 10rem 0;
+  box-sizing: border-box;
 
   .auth {
     @include flex(center, normal);
