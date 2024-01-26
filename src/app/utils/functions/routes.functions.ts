@@ -10,7 +10,7 @@ export const canActivateStartPage: CanActivateFn = () => {
   if (authData) {
     const router = inject(Router);
 
-    router.navigate([`/${RoutesEnum.FILMS}`]);
+    // router.navigate([`/${RoutesEnum.FILMS}`]);
   }
 
   return !!authData;

@@ -1,5 +1,8 @@
 <ng-container *transloco="let t; read: 'GetStartedComponent'">
   <h1>Lorem ipsum dolor sit amet, consectetur adipisicing.</h1>
   <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur blanditiis ducimus earum enim esse nam odio quia reprehenderit similique voluptates?</span>
-  <a href="/"><button class="primary-button button-size-s">{{ t('getStartedLabel') }}</button></a>
+  <a href="/"
+     [routerLink]="routes.FILMS">
+    <button class="primary-button button-size-m">{{ t('getStartedLabel') }}</button>
+  </a>
 </ng-container>

@@ -1,0 +1,92 @@
+@import "mixins";
+
+:host {
+  @include flex(center, center);
+
+  height: 100%;
+
+  .film {
+    @include flex(center, normal);
+
+    position: relative;
+    height: 100%;
+    max-width: 36rem;
+    background-image: url("https://i.pinimg.com/originals/7c/93/07/7c93079100d5e6d36309630258593538.png");
+    background-size: cover;
+    background-position: center;
+
+    &__info {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      height: auto;
+      padding: 1rem 2rem;
+      box-sizing: border-box;
+      border-radius: var(--fa-primary-radius);
+      background: var(--fa-primary-background);
+      display: flex;
+      flex-direction: column;
+      gap: .5rem;
+
+      &.active {
+        max-height: 100%;
+
+        > .description {
+          display: block;
+        }
+      }
+
+      > button, .actions > button {
+        padding: 1rem;
+        border-radius: var(--fa-secondary-radius);
+      };
+
+      .genres {
+        display: flex;
+        gap: .5rem;
+      }
+
+      .actions {
+        @include flex(space-evenly, center);
+
+        img {
+          width: 4rem;
+        }
+      }
+
+      .toggler {
+        position: absolute;
+        right: 1rem;
+        top: 1rem;
+        width: 4rem;
+        height: 4rem;
+      }
+
+      .authors {
+        font-weight: 300;
+      }
+
+      .description {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        margin-top: 1rem;
+      }
+
+      h3 {
+        font-size: 3rem;
+      }
+
+      span {
+        font-size: 1rem;
+      }
+
+      > .description {
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 1;
+      }
+    }
+  }
+}

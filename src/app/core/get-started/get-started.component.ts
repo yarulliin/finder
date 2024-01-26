@@ -1,12 +1,16 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { TranslocoModule } from '@ngneat/transloco';
+import { RoutesEnum } from '../../utils/enums/app.enums';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'fa-get-started',
   standalone: true,
-  imports: [TranslocoModule],
+  imports: [TranslocoModule,  RouterLink],
   templateUrl: './get-started.component.html',
   styleUrl: './get-started.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class GetStartedComponent { }
+export class GetStartedComponent {
+  public readonly routes = RoutesEnum;
+}

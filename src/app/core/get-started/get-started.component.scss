@@ -3,12 +3,12 @@
 :host {
   @include flex(center, center);
 
-  font-family: Roboto;
+  height: 100%;
   gap: 4rem;
   flex-direction: column;
   text-align: center;
   max-width: 64rem;
-  margin: 12rem auto;
+  margin: 0 auto;
 
   h1 {
     font-size: 6rem;

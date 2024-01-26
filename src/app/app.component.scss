@@ -1,6 +1,8 @@
 @import "mixins";
 
 :host {
+  display: flex;
+  flex-direction: column;
   height: 100%;
 
   .background {
@@ -13,17 +15,9 @@
     .circle {
       width: 25%;
       height: 25%;
-      border-radius: 999px;
-      background: linear-gradient(to bottom, #fa39ad 40%, #fe6c4c 60%);
+      border-radius: var(--fa-primary-radius);
+      background: linear-gradient(to bottom, #f56453 40%, #ff3535 60%);
       filter: blur(12rem);
     }
-  }
-
-  .content {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    z-index: 1;
   }
 }
