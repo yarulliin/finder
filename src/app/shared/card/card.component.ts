@@ -5,7 +5,6 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   standalone: true,
   imports: [],
   templateUrl: './card.component.html',
-  styleUrl: './card.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: {
     class: 'card'

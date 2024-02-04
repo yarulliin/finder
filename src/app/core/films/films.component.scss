@@ -1,5 +1,10 @@
 :host {
+  display: grid;
   height: 100%;
   padding: 10rem 0;
-  box-sizing: border-box;
+
+  fa-film-card {
+    grid-column: 1;
+    grid-row: 1;
+  }
 }

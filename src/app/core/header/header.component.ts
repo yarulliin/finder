@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, HostBinding } from '@angular/core';
 import { TranslocoDirective } from '@ngneat/transloco';
 import { RoutesEnum } from '../../utils/enums/app.enums';
 import { RouterLink } from '@angular/router';
@@ -8,12 +8,13 @@ import { fadeAnimation } from '../../utils/consts/animations.consts';
   selector: 'fa-header',
   standalone: true,
   imports: [TranslocoDirective, RouterLink],
-  host: { '[@fade]': 'true' },
   animations: [fadeAnimation],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class HeaderComponent {
+  @HostBinding('@fade') true;
+
   public readonly routes = RoutesEnum;
 }

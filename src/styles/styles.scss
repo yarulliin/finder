@@ -3,15 +3,22 @@
 @import 'colors';
 @import 'variables';
 @import 'classes';
+@import 'keyframes';
 
 :root {
   @include colors();
   @include variables();
+  @include keyframes();
+}
+
+html {
+  font-size: 16px;
 }
 
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 
   h1, h3 {
     font-family: PlayfairDisplay;
@@ -31,6 +38,7 @@ body {
 router-outlet + * {
   position: absolute;
   width: 100%;
+  overflow: hidden;
 }
 
 button {

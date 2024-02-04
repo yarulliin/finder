@@ -3,38 +3,25 @@
 :host {
   @include flex(center, center);
 
-  height: 100%;
-
   .film {
-    @include flex(center, normal);
-
-    position: relative;
     height: 100%;
-    max-width: 36rem;
-    background-image: url("https://i.pinimg.com/originals/7c/93/07/7c93079100d5e6d36309630258593538.png");
+    background-image: url("../../../../../assets/icons/image_placeholder.jpeg");
     background-size: cover;
     background-position: center;
+    aspect-ratio: 9 / 16;
+    transition: all .5s ease-in-out;
 
     &__info {
       position: absolute;
       bottom: 0;
+      left: 0;
       width: 100%;
-      height: auto;
+      max-height: 100%;
       padding: 1rem 2rem;
-      box-sizing: border-box;
-      border-radius: var(--fa-primary-radius);
       background: var(--fa-primary-background);
       display: flex;
       flex-direction: column;
       gap: .5rem;
-
-      &.active {
-        max-height: 100%;
-
-        > .description {
-          display: block;
-        }
-      }
 
       > button, .actions > button {
         padding: 1rem;
@@ -44,6 +31,10 @@
       .genres {
         display: flex;
         gap: .5rem;
+
+        > button {
+          cursor: inherit;
+        }
       }
 
       .actions {
@@ -54,23 +45,8 @@
         }
       }
 
-      .toggler {
-        position: absolute;
-        right: 1rem;
-        top: 1rem;
-        width: 4rem;
-        height: 4rem;
-      }
-
       .authors {
         font-weight: 300;
-      }
-
-      .description {
-        display: flex;
-        flex-direction: column;
-        flex: 1;
-        margin-top: 1rem;
       }
 
       h3 {
@@ -79,13 +55,6 @@
 
       span {
         font-size: 1rem;
-      }
-
-      > .description {
-        overflow: hidden;
-        display: -webkit-box;
-        -webkit-box-orient: vertical;
-        -webkit-line-clamp: 1;
       }
     }
   }

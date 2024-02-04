@@ -1,0 +1,46 @@
+@import "mixins";
+
+:host {
+  @include flex(center, center);
+
+  width: 100%;
+  height: 100%;
+  z-index: 100;
+  backdrop-filter: blur(.5rem);
+  -webkit-backdrop-filter: blur(.5rem);
+
+  .loader,
+  .loader:before,
+  .loader:after {
+    border-radius: var(--fa-secondary-radius);
+    width: 2.5em;
+    height: 2.5em;
+    animation-fill-mode: both;
+    animation: fadeInOut 1.8s infinite ease-in-out;
+  }
+
+  .loader {
+    color: #ff3535;
+    font-size: 7px;
+    position: relative;
+    text-indent: -9999em;
+    transform: translateZ(0);
+    animation-delay: -0.16s;
+
+    &:before,
+    &:after {
+      content: '';
+      position: absolute;
+      top: 0;
+    }
+
+    &:before {
+      left: -3.5em;
+      animation-delay: -0.32s;
+    }
+
+    &:after {
+      left: 3.5em;
+    }
+  }
+}

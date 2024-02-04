@@ -38,6 +38,9 @@
           {
             "avoidEscape": true
           }
+        ],
+        "@typescript-eslint/semi": [
+          "error"
         ]
       }
     },

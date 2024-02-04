@@ -4,9 +4,7 @@
   @include flex(center, center);
 
   height: 100%;
-  flex: 1;
   padding: 10rem 0;
-  box-sizing: border-box;
 
   .auth {
     @include flex(center, normal);
@@ -16,7 +14,8 @@
     margin: 8rem 0;
     gap: 2rem;
     height: 100%;
-    max-width: 32rem;
+    width: 100%;
+    max-width: 36rem;
   }
 
   form {

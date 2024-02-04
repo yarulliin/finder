@@ -5,3 +5,4 @@ export interface ClientId {
 }
 
 export type ApiUrls = typeof Urls;
+export type FactoryReturnType = () => void;

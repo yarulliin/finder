@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core';
 import { Auth, AuthenticationResult, AuthResult } from '../interfaces/auth.interfaces';
 import { AuthApiService } from './auth-api.service';
 import { map, Observable, tap } from 'rxjs';
-import { LocalStorageService } from '../../../utils/services/local-storage/local-storage.service';
 import { LocalStorageKeys } from '../../../utils/enums/app.enums';
+import { LocalStorageService } from '../../../utils/services/local-storage/local-storage.service';
 
 @Injectable({
   providedIn: 'root'

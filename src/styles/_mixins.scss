@@ -23,3 +23,26 @@
     grid-column-gap: $columnGap;
   }
 }
+
+@mixin scroll() {
+  overflow: auto;
+
+  &::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+
+    &-track {
+      background: rgba(0,0,0,0.1);
+      border-radius: 10px;
+    }
+
+    &-thumb {
+      background: rgba(0,0,0,0.2);
+      border-radius: 10px;
+
+      &:hover {
+        background: rgba(0,0,0,0.4);
+      }
+    }
+  }
+}

@@ -27,7 +27,12 @@ export class AuthApiService {
     return this.httpClient.post<AuthResult>(
       this.apiUrl.AUTH,
       data,
-      { headers: { 'X-Amz-Target': TargetValues.AUTH } },
+      {
+        headers: {
+          'X-Amz-Target': TargetValues.AUTH,
+          'Content-Type': 'application/x-amz-json-1.1',
+        }
+      },
     );
   }
 
@@ -35,7 +40,12 @@ export class AuthApiService {
     return this.httpClient.post<RegistrationResult>(
       this.apiUrl.AUTH,
       data,
-      { headers: { 'X-Amz-Target': TargetValues.REGISTRATION } },
+      {
+        headers: {
+          'X-Amz-Target': TargetValues.REGISTRATION,
+          'Content-Type': 'application/x-amz-json-1.1',
+        }
+      },
     );
   }
 
@@ -43,15 +53,25 @@ export class AuthApiService {
     return this.httpClient.post<ResendCodeResult>(
       this.apiUrl.AUTH,
       data,
-      { headers: { 'X-Amz-Target': TargetValues.RESEND_CONFIRMATION_CODE } },
-    )
+      {
+        headers: {
+          'X-Amz-Target': TargetValues.RESEND_CONFIRMATION_CODE,
+          'Content-Type': 'application/x-amz-json-1.1',
+        }
+      },
+    );
   }
 
   public confirmationCode(data: ConfirmationCode): Observable<void> {
     return this.httpClient.post<void>(
       this.apiUrl.AUTH,
       data,
-      { headers: { 'X-Amz-Target': TargetValues.CONFIRMATION_CODE } },
+      {
+        headers: {
+          'X-Amz-Target': TargetValues.CONFIRMATION_CODE,
+          'Content-Type': 'application/x-amz-json-1.1',
+        }
+      },
     );
   }
 
@@ -59,7 +79,12 @@ export class AuthApiService {
     return this.httpClient.post<AuthResult>(
       this.apiUrl.AUTH,
       data,
-      { headers: { 'X-Amz-Target': TargetValues.AUTH } },
+      {
+        headers: {
+          'X-Amz-Target': TargetValues.AUTH,
+          'Content-Type': 'application/x-amz-json-1.1',
+        }
+      },
     );
   }
 }

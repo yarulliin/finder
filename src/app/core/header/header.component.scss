@@ -7,7 +7,6 @@
   top: 0;
   padding: 2rem 4rem;
   width: 100%;
-  box-sizing: border-box;
   gap: 1rem;
   z-index: 1;
 
@@ -17,8 +16,7 @@
     gap: .5rem;
   }
 
-  span {
-    font-family: PlayfairDisplay;
+  h3 {
     font-size: 2rem;
   }
 }

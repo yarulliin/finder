@@ -1,0 +1,25 @@
+@import "mixins";
+
+:host {
+  @include flex(center, center);
+
+  height: 100%;
+  flex-direction: column;
+  text-align: center;
+  gap: 2rem;
+
+  .name {
+    font-weight: 700;
+  }
+
+  > h3 {
+    font-size: 8rem;
+  }
+
+  > span {
+    font-size: 2rem;
+    line-height: 2rem;
+    font-weight: 100;
+    text-wrap: balance;
+  }
+}

@@ -8,5 +8,9 @@
   },
   "NotFoundComponent": {
     "notFoundLabel": "Page not found"
+  },
+  "WelcomeBackComponent": {
+    "message": "Welcome back",
+    "preparingDataMessage": "We are preparing data for you"
   }
 }
