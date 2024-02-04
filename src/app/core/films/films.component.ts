@@ -8,7 +8,7 @@ import {
   PLATFORM_ID,
 } from '@angular/core';
 import { FilmCardComponent } from './components/film-card/film-card.component';
-import { fadeAnimation, slideAnimation, swipeAnimations } from '../../utils/consts/animations.consts';
+import { slideAnimation, swipeAnimations } from '../../utils/consts/animations.consts';
 import { AsyncPipe } from '@angular/common';
 import { Observable } from 'rxjs';
 import { Film, FilmEvent, UpdateFilmMethod } from './utils/interfaces/films.interfaces';
@@ -20,7 +20,7 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
   selector: 'fa-films',
   standalone: true,
   imports: [AsyncPipe, FilmCardComponent],
-  animations: [slideAnimation, swipeAnimations, fadeAnimation],
+  animations: [slideAnimation, swipeAnimations],
   templateUrl: './films.component.html',
   styleUrl: './films.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush
@@ -45,12 +45,11 @@ export class FilmsComponent {
   ) {}
 
   public updateFilm({ filmName, method }: FilmEvent): void {
-    this.changeSwipeState(method);
     this.filmsService.updateFilm(filmName, method)
       .pipe(
         takeUntilDestroyed(this.destroyRef)
       )
-      .subscribe();
+      .subscribe(() => this.changeSwipeState(method));
   }
 
   private changeSwipeState(method: UpdateFilmMethod): void {

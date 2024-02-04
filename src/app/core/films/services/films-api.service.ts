@@ -18,12 +18,13 @@ export class FilmsApiService {
   public getFilms(sessionId: string): Observable<Film[]> {
     const params = createHttpParams({ id: sessionId });
 
-    return this.httpClient.get<Film[]>(`${this.apiUrl.FILMS}/default/get-films`, { params });
+    return this.httpClient.get<Film[]>(`${this.apiUrl.GET_FILMS}/default/get-films`, { params });
   }
 
-  public updateFilm(sessionId: string, method: UpdateFilmMethod, filmName: string): Observable<void> {
+  // TODO: remove responseType and change return type to void
+  public updateFilm(sessionId: string, method: UpdateFilmMethod, filmName: string): Observable<string> {
     const params = createHttpParams({ id: sessionId, film: filmName, method });
 
-    return this.httpClient.post<void>(`${this.apiUrl.FILMS}/default/update-user-films`, { params });
+    return this.httpClient.get<string>(`${this.apiUrl.UPDATE_FILM}/default/update-user-films`, { params, responseType: 'text' as 'json' });
   }
 }

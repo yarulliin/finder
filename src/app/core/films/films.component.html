@@ -1,7 +1,6 @@
 @if(films$ | async; as films) {
   @for(film of films; track film; let last = $first) {
-    <fa-film-card @fade
-                  [film]="film"
+    <fa-film-card [film]="film"
                   (emitUpdateFilm)="updateFilm($event)"></fa-film-card>
   }
 }
