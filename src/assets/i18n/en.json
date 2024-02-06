@@ -12,5 +12,8 @@
   "WelcomeBackComponent": {
     "message": "Welcome back",
     "preparingDataMessage": "We are preparing data for you"
+  },
+  "FilmsComponent": {
+    "message": "Preparing films for you"
   }
 }

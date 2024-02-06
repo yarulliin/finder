@@ -1,16 +1,17 @@
-import { ChangeDetectionStrategy, Component, HostBinding } from '@angular/core';
-import { fadeAnimation } from '../../utils/consts/animations.consts';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 
 @Component({
   selector: 'fa-loader',
   standalone: true,
   template: `
-    <span class="loader"></span>
+    <h3>
+      <ng-content></ng-content>
+      <span class="dot">.</span>
+      <span class="dot">.</span>
+      <span class="dot">.</span>
+    </h3>
   `,
-  animations: [fadeAnimation],
   styleUrl: './loader.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class LoaderComponent {
-  @HostBinding('@fade') true;
-}
+export class LoaderComponent {}

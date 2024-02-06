@@ -8,8 +8,9 @@ import { provideTransloco } from '@ngneat/transloco';
 import { Languages } from './utils/enums/languages.enums';
 import { AVAILABLE_LANGUAGES } from './utils/consts/languages.consts';
 import { provideAnimations } from '@angular/platform-browser/animations';
-import { provideSessionIdInitializer } from './utils/functions/app.functions';
+import { provideSessionId } from './utils/functions/app.functions';
 import { interceptors } from './utils/consts/interceptors.consts';
+import { provideFilmsInitializer, provideFilmsListener } from './utils/functions/films.functions';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -20,7 +21,7 @@ export const appConfig: ApplicationConfig = {
       withInterceptors(interceptors),
     ),
     provideClientHydration(),
-    provideSessionIdInitializer(),
+    provideSessionId(),
     provideTransloco({
       config: {
         availableLangs: AVAILABLE_LANGUAGES,
@@ -30,5 +31,7 @@ export const appConfig: ApplicationConfig = {
       },
       loader: TranslocoHttpLoader
     }),
+    provideFilmsInitializer(),
+    provideFilmsListener(),
   ]
 };

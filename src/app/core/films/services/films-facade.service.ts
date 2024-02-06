@@ -1,18 +1,18 @@
-import { DestroyRef, Injectable, } from '@angular/core';
+import { DestroyRef, Inject, Injectable, } from '@angular/core';
 import { FilmsApiService } from './films-api.service';
 import { LocalStorageService } from '../../../utils/services/local-storage/local-storage.service';
 import { LocalStorageKeys } from '../../../utils/enums/app.enums';
-import { BehaviorSubject, filter, Observable, switchMap, tap } from 'rxjs';
+import { BehaviorSubject, filter, map, Observable, switchMap, tap, withLatestFrom } from 'rxjs';
 import { Film, UpdateFilmMethod } from '../utils/interfaces/films.interfaces';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
-import { BATCH_SIZE } from '../utils/consts/films.consts';
-import { bind } from '../../../utils/decorators/bind.decorator';
+import { SESSION_ID } from '../../../utils/tokens/app.tokens';
 
 @Injectable({
   providedIn: 'root',
 })
 export class FilmsFacadeService extends BehaviorSubject<Film[]> {
   constructor(
+    @Inject(SESSION_ID) private readonly sessionId: string,
     private readonly filmsApiService: FilmsApiService,
     private readonly localStorageService: LocalStorageService,
     private readonly destroyRef: DestroyRef
@@ -26,43 +26,45 @@ export class FilmsFacadeService extends BehaviorSubject<Film[]> {
     this.next(films);
   }
 
-  // TODO: change return type to void
-  public updateFilm(filmName: string, method: UpdateFilmMethod): Observable<string> {
-    const sessionId = this.localStorageService.getItem<string>(LocalStorageKeys.SESSION_ID);
+  public updateFilm(filmName: string, method: UpdateFilmMethod): Observable<Film[]> {
+    this.removeFilm();
 
-    return this.filmsApiService.updateFilm(sessionId, method, filmName)
-      .pipe(tap(this.removeFilm));
+    return this.filmsApiService.updateFilm(this.sessionId, method, filmName)
+      .pipe(
+        withLatestFrom(this),
+        map(([_, films]: [void, Film[]]) => films.map((film: Film) => film.name)),
+        switchMap((films: string[]) => this.getFilms(1, films)),
+      );
   }
 
   public initFilmsListener(): void {
     this.pipe(
-      filter((films: Film[]) => !films?.length || films.length === BATCH_SIZE - 1),
-      switchMap(this.getFilms),
+      filter((films: Film[]) => !films?.length),
+      switchMap(() => this.getFilms()),
       takeUntilDestroyed(this.destroyRef),
     )
       .subscribe();
   }
 
-  @bind
-  private getFilms(): Observable<Film[]> {
-    const sessionId = this.localStorageService.getItem<string>(LocalStorageKeys.SESSION_ID);
+  private removeFilm(): void {
+    const films = this.value.slice(0, this.value.length - 1);
 
-    return this.filmsApiService.getFilms(sessionId)
+    this.setFilms(films);
+  }
+
+  private getFilms(filmsCount?: number, filmsToExclude?: string[]): Observable<Film[]> {
+    return this.filmsApiService.getFilms(this.sessionId, filmsCount, filmsToExclude)
       .pipe(
         tap((films: Film[]) => {
           const data = [...films, ...this.localStorageService.getItem<Film[]>(LocalStorageKeys.FILMS) || []];
 
-          this.next(data);
-          this.localStorageService.setItem<Film[]>(LocalStorageKeys.FILMS, data);
+          this.setFilms(data);
         }),
       );
   }
 
-  @bind
-  private removeFilm(): void {
-    const films = this.value.slice(0, this.value.length - 1);
-
-    this.localStorageService.setItem<Film[]>(LocalStorageKeys.FILMS, films);
+  private setFilms(films: Film[]): void {
     this.next(films);
+    this.localStorageService.setItem<Film[]>(LocalStorageKeys.FILMS, films);
   }
 }
