@@ -1,0 +1,20 @@
+@mixin dark-theme() {
+  --fa-text-01: #ffffff;
+  --fa-text-02: #000000;
+
+  --fa-primary-background: #000000;
+  --fa-secondary-background: #ffffff;
+
+  --fa-link: #526ed3;
+  --fa-link-hover: #6c86e2;
+
+  --fa-primary-hover: #0a0a0a;
+
+  --fa-primary-button-gradient: linear-gradient(
+    to right,
+    #ffffff,
+    #e1e1e1,
+    #c3c3c3,
+    #a5a5a5
+  );
+}

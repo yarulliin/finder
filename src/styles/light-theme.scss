@@ -1,0 +1,20 @@
+@mixin light-theme() {
+  --fa-text-01: #000000;
+  --fa-text-02: #ffffff;
+
+  --fa-primary-background: #ffffff;
+  --fa-secondary-background: #000000;
+
+  --fa-link: #526ed3;
+  --fa-link-hover: #6c86e2;
+
+  --fa-primary-hover: #f5f5f5;
+
+  --fa-primary-button-gradient: linear-gradient(
+    to right,
+    #000000,
+    #1e1e1e,
+    #3c3c3c,
+    #5a5a5a
+  );
+}

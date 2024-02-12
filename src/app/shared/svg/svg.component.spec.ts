@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { WelcomeBackComponent } from './welcome-back.component';
+import { SvgComponent } from './svg.component';
 
-describe('WelcomeBackComponent', () => {
-  let component: WelcomeBackComponent;
-  let fixture: ComponentFixture<WelcomeBackComponent>;
+describe('SvgComponent', () => {
+  let component: SvgComponent;
+  let fixture: ComponentFixture<SvgComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [WelcomeBackComponent]
+      imports: [SvgComponent]
     })
     .compileComponents();
     
-    fixture = TestBed.createComponent(WelcomeBackComponent);
+    fixture = TestBed.createComponent(SvgComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

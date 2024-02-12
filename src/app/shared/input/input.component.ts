@@ -11,6 +11,4 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
     class: 'input'
   }
 })
-export class InputComponent {
-
-}
+export class InputComponent {}

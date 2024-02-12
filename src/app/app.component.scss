@@ -19,5 +19,14 @@
       background: linear-gradient(to bottom, #f56453 40%, #ff3535 60%);
       filter: blur(12rem);
     }
+
+    .theme-switcher {
+      position: absolute;
+      bottom: 4rem;
+      left: 4rem;
+      z-index: 1;
+      padding: 1rem;
+      border-radius: var(--fa-secondary-radius);
+    }
   }
 }

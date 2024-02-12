@@ -1,4 +1,4 @@
-import { DestroyRef, Inject, Injectable, } from '@angular/core';
+import { DestroyRef, Inject, Injectable } from '@angular/core';
 import { FilmsApiService } from './films-api.service';
 import { LocalStorageService } from '../../../utils/services/local-storage/local-storage.service';
 import { LocalStorageKeys } from '../../../utils/enums/app.enums';
@@ -7,15 +7,20 @@ import { Film, UpdateFilmMethod } from '../utils/interfaces/films.interfaces';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { SESSION_ID } from '../../../utils/tokens/app.tokens';
 
+// TODO: investigate possibility to use signals
 @Injectable({
   providedIn: 'root',
 })
 export class FilmsFacadeService extends BehaviorSubject<Film[]> {
+  public get films$(): Observable<Film[]> {
+    return this.asObservable();
+  }
+
   constructor(
     @Inject(SESSION_ID) private readonly sessionId: string,
     private readonly filmsApiService: FilmsApiService,
     private readonly localStorageService: LocalStorageService,
-    private readonly destroyRef: DestroyRef
+    private readonly destroyRef: DestroyRef,
   ) {
     super([]);
   }

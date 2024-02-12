@@ -10,15 +10,11 @@
 }
 
 .primary-button {
-  background-image: linear-gradient(
-    to right,
-    var(--fa-secondary-background),
-    #131212,
-    #3d3d3d,
-    #4b4b4b
-  );
+  display: inline-flex;
+  box-sizing: border-box;
+  background-image: var(--fa-primary-button-gradient);
   box-shadow: var(--fa-secondary-shadow);
-  color: var(--fa-primary-background);
+  color: var(--fa-text-02);
   background-size: 300% 100%;
   moz-transition: all .4s ease-in-out;
   -o-transition: all .4s ease-in-out;
@@ -42,12 +38,12 @@
   display: inline-block;
   text-decoration: none;
   background: var(--fa-primary-background);
-  color: black;
   transition: all .4s;
+  color: var(--fa-text-01);
 
   &:hover {
     background: var(--fa-primary-hover);
-    text-shadow: 0 0.04em 0.04em rgba(255, 255, 255, 0.253);
+    text-shadow: 0 0.04em 0.04em rgba(255, 255, 255, 0.25);
   }
 }
 

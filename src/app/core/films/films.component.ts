@@ -31,7 +31,7 @@ import { TranslocoPipe } from '@ngneat/transloco';
   animations: [slideAnimation, swipeAnimations],
   templateUrl: './films.component.html',
   styleUrl: './films.component.scss',
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class FilmsComponent {
   @HostBinding('@slide')
@@ -44,7 +44,7 @@ export class FilmsComponent {
     this.state = '';
   }
 
-  public films$: Observable<Film[]> = this.filmsService.asObservable();
+  public films$: Observable<Film[]> = this.filmsService.films$;
 
   constructor(
     @Inject(PLATFORM_ID) private readonly platformId: Object,

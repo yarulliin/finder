@@ -1,18 +1,34 @@
 /* You can add global styles to this file, and also import other style files */
 @import 'fonts';
-@import 'colors';
+@import 'light-theme';
+@import 'dark-theme';
 @import 'variables';
 @import 'classes';
 @import 'keyframes';
 
 :root {
-  @include colors();
   @include variables();
   @include keyframes();
+
+  [theme=light-theme] {
+    @include light-theme();
+  }
+
+  [theme=dark-theme] {
+    @include dark-theme();
+  }
 }
 
 html {
   font-size: 16px;
+
+  @media screen and (max-width: 1023px) {
+    font-size: 10px;
+  }
+
+  @media screen and (max-width: 767px) {
+    font-size: 8px;
+  }
 }
 
 * {
@@ -28,11 +44,17 @@ html {
   h3 {
     font-weight: 400;
   }
+
+  h1, h1, span, p {
+    color: var(--fa-text-01);
+  }
 }
 
 body {
   font-family: Roboto;
   height: 100vh;
+  transition: background .2s linear;
+  background: var(--fa-primary-background);
 }
 
 router-outlet + * {

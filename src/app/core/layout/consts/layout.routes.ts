@@ -16,10 +16,6 @@ export default [
         path: RoutesEnum.FILMS,
         loadComponent: () => import('../../../core/films/films.component').then(c => c.FilmsComponent),
       },
-      {
-        path: RoutesEnum.WELCOME,
-        loadComponent: () => import('../../../core/welcome-back/welcome-back.component').then(c => c.WelcomeBackComponent),
-      },
     ]
   },
 ];

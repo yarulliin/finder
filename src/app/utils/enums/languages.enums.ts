@@ -1,3 +1,3 @@
-export enum Languages {
+export const enum Languages {
   EN = 'en',
 }
