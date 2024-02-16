@@ -63,7 +63,6 @@ jobs:
         env:
           DEPLOYMENT_GROUP: ${{ secrets.AWS_CODEDEPLOY_DEPLOYMENT_GROUP }}
           DEPLOY_APP_NAME: ${{ secrets.AWS_CODEDEPLOY_APPLICATION_NAME }}
-        working-directory: ./dist/finder
         run: |
           aws deploy create-deployment \
           --deployment-group-name "$DEPLOYMENT_GROUP" \
