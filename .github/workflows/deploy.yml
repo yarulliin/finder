@@ -6,6 +6,7 @@ on:
 
 env:
   CACHE_NAME: cache-node-modules
+  GITHUB_TOKEN: ${{ github.token }}
 
 jobs:
   build:
@@ -43,25 +44,31 @@ jobs:
     needs: build
 
     steps:
-      - name: Deploy to AWS EC2
-        uses: appleboy/scp-action@master
+      - name: Deploy
+        uses: JamesIves/github-pages-deploy-action@releases/v3
         with:
-          host: ${{ secrets.HOST }}
-          username: ${{ secrets.USERNAME }}
-          key: ${{ secrets.DEPLOY_KEY }}
-          port: 22
-          source: "dist/finder"
-          target: ${{ secrets.DEPLOY_PATH }}
-
-      - name: SSH into EC2 instance and restart server
-        uses: appleboy/ssh-action@master
-        with:
-          host: ${{ secrets.HOST }}
-          username: ${{ secrets.USERNAME }}
-          key: ${{ secrets.DEPLOY_KEY }}
-          port: 22
-          script: |
-            sudo systemctl restart nginx
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          BRANCH: master
+          FOLDER: dist/finder/browser
+#      - name: Deploy to AWS EC2
+#        uses: appleboy/scp-action@master
+#        with:
+#          host: ${{ secrets.HOST }}
+#          username: ${{ secrets.USERNAME }}
+#          key: ${{ secrets.DEPLOY_KEY }}
+#          port: 22
+#          source: "dist/finder"
+#          target: ${{ secrets.DEPLOY_PATH }}
+#
+#      - name: SSH into EC2 instance and restart server
+#        uses: appleboy/ssh-action@master
+#        with:
+#          host: ${{ secrets.HOST }}
+#          username: ${{ secrets.USERNAME }}
+#          key: ${{ secrets.DEPLOY_KEY }}
+#          port: 22
+#          script: |
+#            sudo systemctl restart nginx
 
 #    steps:
 #      - name: Install AWS CLI
