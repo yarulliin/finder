@@ -1,9 +1,0 @@
-@if(films$ | async; as films) {
-  @for(film of films | slice: films.length - 2: films.length + 1; track film; let last = $first) {
-    <fa-film-card [film]="film"
-                  (emitUpdateFilm)="updateFilm($event)"></fa-film-card>
-  }
-  @empty {
-    <fa-loader>{{ 'FilmsComponent.message' | transloco }}</fa-loader>
-  }
-}
