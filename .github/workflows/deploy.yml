@@ -44,11 +44,6 @@ jobs:
     needs: build
 
     steps:
-      - name: check dist
-        run: |
-          pwd
-          cd finder
-          pwd
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@v4
         with:
