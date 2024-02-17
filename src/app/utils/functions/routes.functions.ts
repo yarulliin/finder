@@ -14,7 +14,7 @@ export const canActivateStartPage: CanActivateFn = () => {
     if (sessionId) {
       const router = inject(Router);
 
-      // router.navigate([`/${RoutesEnum.FILMS}`]);
+      router.navigate([`/${RoutesEnum.FILMS}`]);
     }
 
     return !!sessionId;

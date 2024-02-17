@@ -15,14 +15,6 @@
         "plugin:@angular-eslint/template/process-inline-templates"
       ],
       "rules": {
-        "@angular-eslint/directive-selector": [
-          "error",
-          {
-            "type": "attribute",
-            "prefix": "fa",
-            "style": "camelCase"
-          }
-        ],
         "@angular-eslint/component-selector": [
           "error",
           {
@@ -31,16 +23,25 @@
             "style": "kebab-case"
           }
         ],
+        "@angular-eslint/directive-selector": [
+          "error",
+          {
+            "type": "attribute",
+            "prefix": "fa",
+            "style": "camelCase"
+          }
+        ],
         "@angular-eslint/no-host-metadata-property": "off",
+        "@typescript-eslint/semi": [
+          "error"
+        ],
         "quotes": [
           "error",
           "single",
           {
-            "avoidEscape": true
+            "avoidEscape": true,
+            "allowTemplateLiterals": true
           }
-        ],
-        "@typescript-eslint/semi": [
-          "error"
         ]
       }
     },

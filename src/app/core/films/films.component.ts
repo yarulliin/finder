@@ -4,8 +4,6 @@ import {
   DestroyRef,
   HostBinding,
   HostListener,
-  Inject,
-  PLATFORM_ID,
 } from '@angular/core';
 import { FilmCardComponent } from './components/film-card/film-card.component';
 import { slideAnimation, swipeAnimations } from '../../utils/consts/animations.consts';
@@ -47,7 +45,6 @@ export class FilmsComponent {
   public films$: Observable<Film[]> = this.filmsService.films$;
 
   constructor(
-    @Inject(PLATFORM_ID) private readonly platformId: Object,
     private readonly filmsService: FilmsFacadeService,
     private readonly destroyRef: DestroyRef,
   ) {}

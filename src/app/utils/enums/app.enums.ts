@@ -7,7 +7,6 @@ export const enum LocalStorageKeys {
 
 export enum RoutesEnum {
   EMPTY = '',
-  AUTH = 'auth',
   FILMS = 'films',
   UNKNOWN = '**'
 }

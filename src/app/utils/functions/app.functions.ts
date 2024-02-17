@@ -10,7 +10,7 @@ export const isPresent = <T>(value: T | null): value is T =>
 
 export const sessionIdInitializer = (
   localStorageService: LocalStorageService,
-  platformId: Object,
+  platformId: string,
 ): string | void => {
   if (isPlatformBrowser(platformId)) {
     let sessionId = localStorageService.getItem<string>(LocalStorageKeys.SESSION_ID);

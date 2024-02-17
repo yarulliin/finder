@@ -6,7 +6,7 @@ import { isPlatformBrowser } from '@angular/common';
 })
 export class LocalStorageService {
   constructor(
-    @Inject(PLATFORM_ID) private readonly platformId: Object,
+    @Inject(PLATFORM_ID) private readonly platformId: string,
   ) {}
 
   public getItem<T>(key: string): T | void {

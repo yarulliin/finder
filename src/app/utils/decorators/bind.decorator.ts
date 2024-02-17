@@ -1,4 +1,4 @@
-export function bind(target: Object, key: string, descriptor: PropertyDescriptor) {
+export function bind(target: unknown, key: string, descriptor: PropertyDescriptor) {
   const { value } = descriptor;
 
   if (typeof value !== 'function') {

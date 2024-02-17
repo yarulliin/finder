@@ -7,10 +7,6 @@ export const routes: Routes = [
     loadChildren: () => import('./core/layout/consts/layout.routes'),
   },
   {
-    path: RoutesEnum.AUTH,
-    loadComponent: () => import('./core/auth/auth.component').then(m => m.AuthComponent),
-  },
-  {
     path: RoutesEnum.UNKNOWN,
     loadComponent: () => import('./core/not-found/not-found.component').then(m => m.NotFoundComponent),
   },

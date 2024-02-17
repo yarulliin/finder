@@ -6,7 +6,7 @@ import { SafeHtml } from '@angular/platform-browser';
   selector: 'fa-svg',
   standalone: true,
   imports: [],
-  template: ``,
+  template: '',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SvgComponent {

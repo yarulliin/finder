@@ -5,24 +5,24 @@ import { FilmsFacadeService } from '../../core/films/services/films-facade.servi
 
 export const filmsInitializer = (
   filmsService: FilmsFacadeService,
-  platformId: Object,
+  platformId: string,
 ): FactoryReturnType => {
   return (): void => {
     if (isPlatformBrowser(platformId)) {
       filmsService.initFilms();
     }
-  }
+  };
 };
 
 export const filmsListener = (
   filmsService: FilmsFacadeService,
-  platformId: Object,
+  platformId: string,
 ): FactoryReturnType => {
   return (): void => {
     if (isPlatformBrowser(platformId)) {
       filmsService.initFilmsListener();
     }
-  }
+  };
 };
 
 export const provideFilmsInitializer = (): EnvironmentProviders => makeEnvironmentProviders([
