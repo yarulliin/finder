@@ -47,7 +47,7 @@ jobs:
       - name: check dist
         run: |
           pwd
-          cd dist
+          cd finder
           pwd
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@v4
