@@ -47,8 +47,6 @@ jobs:
       - name: check dist
         run: |
           ls
-          cd finder
-          ls
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@v4
         with:
