@@ -44,12 +44,18 @@ jobs:
     needs: build
 
     steps:
+      - name: check dist
+        run: |
+          ls
+          cd finder
+          ls
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           BRANCH: master
           FOLDER: dist/finder/browser
+
 #      - name: Deploy to AWS EC2
 #        uses: appleboy/scp-action@master
 #        with:
