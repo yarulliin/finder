@@ -9,12 +9,13 @@ import { FilmCardComponent } from './components/film-card/film-card.component';
 import { slideAnimation, swipeAnimations } from '../../utils/consts/animations.consts';
 import { AsyncPipe, SlicePipe } from '@angular/common';
 import { Observable } from 'rxjs';
-import { Film, FilmEvent, UpdateFilmMethod } from './utils/interfaces/films.interfaces';
+import { Film, UpdateFilmMethod } from './utils/interfaces/films.interfaces';
 import { Swipe } from '../../utils/interfaces/animations.interfaces';
 import { FilmsFacadeService } from './services/films-facade.service';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { LoaderComponent } from '../../shared/loader/loader.component';
 import { TranslocoPipe } from '@ngneat/transloco';
+import { SwipeDirective } from './directives/swipe/swipe.directive';
 
 @Component({
   selector: 'fa-films',
@@ -25,6 +26,7 @@ import { TranslocoPipe } from '@ngneat/transloco';
     FilmCardComponent,
     LoaderComponent,
     TranslocoPipe,
+    SwipeDirective,
   ],
   animations: [slideAnimation, swipeAnimations],
   templateUrl: './films.component.html',
@@ -49,9 +51,9 @@ export class FilmsComponent {
     private readonly destroyRef: DestroyRef,
   ) {}
 
-  public updateFilm({ filmName, method }: FilmEvent): void {
-    this.changeSwipeState(method);
-    this.filmsService.updateFilm(filmName, method)
+  public swipe(state: UpdateFilmMethod, name: string): void {
+    this.changeSwipeState(state);
+    this.filmsService.updateFilm(name, state)
       .pipe(
         takeUntilDestroyed(this.destroyRef)
       )

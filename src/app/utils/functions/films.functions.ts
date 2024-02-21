@@ -1,14 +1,13 @@
 import { FactoryReturnType } from '../interfaces/app.interfaces';
-import { isPlatformBrowser } from '@angular/common';
-import { APP_INITIALIZER, EnvironmentProviders, makeEnvironmentProviders, PLATFORM_ID } from '@angular/core';
+import { APP_INITIALIZER, EnvironmentProviders, makeEnvironmentProviders } from '@angular/core';
 import { FilmsFacadeService } from '../../core/films/services/films-facade.service';
+import { isBrowser } from '@ngneat/transloco';
 
 export const filmsInitializer = (
   filmsService: FilmsFacadeService,
-  platformId: string,
 ): FactoryReturnType => {
   return (): void => {
-    if (isPlatformBrowser(platformId)) {
+    if (isBrowser()) {
       filmsService.initFilms();
     }
   };
@@ -16,10 +15,9 @@ export const filmsInitializer = (
 
 export const filmsListener = (
   filmsService: FilmsFacadeService,
-  platformId: string,
 ): FactoryReturnType => {
   return (): void => {
-    if (isPlatformBrowser(platformId)) {
+    if (isBrowser()) {
       filmsService.initFilmsListener();
     }
   };
@@ -30,7 +28,7 @@ export const provideFilmsInitializer = (): EnvironmentProviders => makeEnvironme
     provide: APP_INITIALIZER,
     useFactory: filmsInitializer,
     multi: true,
-    deps: [FilmsFacadeService, PLATFORM_ID],
+    deps: [FilmsFacadeService],
   },
 ]);
 
@@ -39,6 +37,6 @@ export const provideFilmsListener = (): EnvironmentProviders => makeEnvironmentP
     provide: APP_INITIALIZER,
     useFactory: filmsListener,
     multi: true,
-    deps: [FilmsFacadeService, PLATFORM_ID],
+    deps: [FilmsFacadeService],
   },
 ]);

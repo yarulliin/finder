@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
 import { CardComponent } from '../../../../shared/card/card.component';
 import { LineClampComponent } from '../../../../shared/line-clamp/line-clamp.component';
-import { Film, FilmEvent, UpdateFilmMethod } from '../../utils/interfaces/films.interfaces';
+import { Film, UpdateFilmMethod } from '../../utils/interfaces/films.interfaces';
 import { AsyncPipe } from '@angular/common';
 
 @Component({
@@ -19,7 +19,7 @@ import { AsyncPipe } from '@angular/common';
 export class FilmCardComponent {
   @Input() public film: Film;
 
-  @Output() public readonly emitUpdateFilm: EventEmitter<FilmEvent> = new EventEmitter<FilmEvent>();
+  @Output() public readonly emitSwipe: EventEmitter<UpdateFilmMethod> = new EventEmitter<UpdateFilmMethod>();
 
   public get image(): string {
     const [image] = this.film.movieImages.posters;
@@ -28,6 +28,6 @@ export class FilmCardComponent {
   }
 
   public updateFilm(method: UpdateFilmMethod): void {
-    this.emitUpdateFilm.emit({ filmName: this.film.name, method });
+    this.emitSwipe.emit(method);
   }
 }

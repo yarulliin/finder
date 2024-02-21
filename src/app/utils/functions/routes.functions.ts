@@ -1,13 +1,11 @@
 import { CanActivateFn, Router } from '@angular/router';
-import { inject, PLATFORM_ID } from '@angular/core';
+import { inject } from '@angular/core';
 import { LocalStorageKeys, RoutesEnum } from '../enums/app.enums';
 import { LocalStorageService } from '../services/local-storage/local-storage.service';
-import { isPlatformBrowser } from '@angular/common';
+import { isBrowser } from '@ngneat/transloco';
 
 export const canActivateStartPage: CanActivateFn = () => {
-  const platformId = inject(PLATFORM_ID);
-
-  if (isPlatformBrowser(platformId)) {
+  if (isBrowser()) {
     const localStorageService = inject(LocalStorageService);
     const sessionId = localStorageService.getItem(LocalStorageKeys.SESSION_ID);
 

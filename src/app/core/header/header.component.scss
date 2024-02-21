@@ -20,4 +20,12 @@
     font-size: 2rem;
     color: var(--fa-text-01);
   }
+
+  @media screen and (max-width: 1023px) {
+    justify-content: center;
+
+    > h3 {
+      font-size: 4rem;
+    }
+  }
 }

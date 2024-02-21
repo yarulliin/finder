@@ -1,28 +1,24 @@
-import { Inject, Injectable, PLATFORM_ID } from '@angular/core';
-import { isPlatformBrowser } from '@angular/common';
+import { Injectable } from '@angular/core';
+import { isBrowser } from '@ngneat/transloco';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LocalStorageService {
-  constructor(
-    @Inject(PLATFORM_ID) private readonly platformId: string,
-  ) {}
-
   public getItem<T>(key: string): T | void {
-    if (isPlatformBrowser(this.platformId)) {
+    if (isBrowser()) {
       return JSON.parse(localStorage.getItem(key) || 'null');
     }
   }
 
   public setItem<T>(key: string, item: T): void {
-    if (isPlatformBrowser(this.platformId)) {
+    if (isBrowser()) {
       localStorage.setItem(key, JSON.stringify(item));
     }
   }
 
   public removeItem(key: string): void {
-    if (isPlatformBrowser(this.platformId)) {
+    if (isBrowser()) {
       localStorage.removeItem(key);
     }
   }

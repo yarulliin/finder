@@ -10,6 +10,15 @@
     background-position: center;
     aspect-ratio: 9 / 16;
     transition: all .5s ease-in-out;
+    cursor: grab;
+    cursor: -moz-grab;
+    cursor: -webkit-grab;
+
+    &:active {
+      cursor: grabbing;
+      cursor: -moz-grabbing;
+      cursor: -webkit-grabbing;
+    }
 
     &__info {
       position: absolute;
