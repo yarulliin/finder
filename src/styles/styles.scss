@@ -9,14 +9,7 @@
 :root {
   @include variables();
   @include keyframes();
-
-  [theme=light-theme] {
-    @include light-theme();
-  }
-
-  [theme=dark-theme] {
-    @include dark-theme();
-  }
+  @include light-theme();
 }
 
 html {
